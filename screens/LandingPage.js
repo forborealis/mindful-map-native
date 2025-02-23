@@ -40,7 +40,7 @@ export default function LandingPage({ navigation }) {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Signin')}
       >
         <Text style={styles.buttonText}>Try Now</Text>
       </TouchableOpacity>
