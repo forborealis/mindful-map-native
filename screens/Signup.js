@@ -1,7 +1,54 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import axios from 'axios';
+import { setUser } from '../redux/actions/authActions';
+import { API_URL } from '@env';
+import Toast from 'react-native-toast-message';
 
 export default function Signup({ navigation }) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+
+  const handleSignup = async () => {
+    try {
+      // Create user in Firebase
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Add user to MongoDB
+      await axios.post(`${API_URL}/auth/signup`, { name, email, password, firebaseUid: user.uid });
+
+      // Dispatch user to Redux store
+      dispatch(setUser(user));
+      Toast.show({
+        type: 'success',
+        text1: 'Account successfully created!',
+      });
+
+      setTimeout(() => {
+        navigation.navigate('Signin');
+      }, 2000); 
+    } catch (error) {
+      console.error(error);
+      if (error.response && error.response.status === 400) {
+        Toast.show({
+          type: 'error',
+          text1: 'This email is already taken. Use another one.',
+        });
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: 'An error occurred. Please try again.',
+        });
+      }
+    }
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate('LandingPage')}>
@@ -12,19 +59,25 @@ export default function Signup({ navigation }) {
         style={styles.input}
         placeholder="Name"
         placeholderTextColor="#6fba94"
+        value={name}
+        onChangeText={setName}
       />
       <TextInput
         style={styles.input}
         placeholder="Email"
         placeholderTextColor="#6fba94"
+        value={email}
+        onChangeText={setEmail}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
         placeholderTextColor="#6fba94"
         secureTextEntry
+        value={password}
+        onChangeText={setPassword}
       />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleSignup}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
       <View style={styles.signinContainer}>
