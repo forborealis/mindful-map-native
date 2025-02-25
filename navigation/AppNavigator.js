@@ -6,6 +6,7 @@ import Signin from '../screens/Signin';
 import Signup from '../screens/Signup';
 import AboutUs from '../screens/AboutUs';
 import MoodLogs from '../screens/user/MoodLogs';
+import ActivityLogs from '../screens/user/ActivityLogs';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,11 @@ export default function AppNavigator() {
       <Stack.Screen
           name="MoodLogs"
           component={MoodLogs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ActivityLogs"
+          component={ActivityLogs}
           options={{ headerShown: false }}
         />
   </Stack.Navigator>

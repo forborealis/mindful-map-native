@@ -4,10 +4,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function MoodLogs({ navigation }) {
   const handleLogout = () => {
-    // Perform any necessary cleanup or session ending logic here
-
-    // Redirect to Signin screen
     navigation.navigate('Signin');
+  };
+
+  const handleNext = () => {
+    navigation.navigate('ActivityLogs');
   };
 
   const currentDate = new Date();
@@ -62,6 +63,9 @@ export default function MoodLogs({ navigation }) {
           </View>
         </View>
       </View>
+      <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
+        <Text style={styles.nextButtonText}>Next</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#eef0ee',
     paddingHorizontal: 20,
-    paddingTop: 60,
+    paddingTop: 20, 
   },
   logoutButton: {
     position: 'absolute',
@@ -82,19 +86,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: -40, 
   },
   title: {
     textAlign: 'center',
     color: '#292f33',
     fontSize: 37,
     fontFamily: 'Nunito-Bold',
-    marginBottom: 20,
+    marginBottom: 10, 
   },
   dateTimeContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-    marginBottom: 20,
+    marginBottom: 10, 
   },
   dateText: {
     color: '#292f33',
@@ -108,13 +113,13 @@ const styles = StyleSheet.create({
   },
   moodContainer: {
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   moodRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-    marginBottom: 20,
+    marginBottom: 10, 
   },
   moodItem: {
     alignItems: 'center',
@@ -129,5 +134,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Nunito',
     marginTop: 5,
+  },
+  nextButton: {
+    backgroundColor: '#6fba94',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 70, 
+    alignSelf: 'center',
+    width: '50%',
+  },
+  nextButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontFamily: 'Nunito-Bold',
   },
 });
