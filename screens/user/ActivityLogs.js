@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     color: '#3a3939',
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: 'Nunito-Bold',
     marginBottom: 10,
   },
@@ -206,5 +206,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontFamily: 'Nunito-Bold',
+    fontWeight: 'bolder',
   },
 });

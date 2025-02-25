@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   },
   moodText: {
     color: '#292f33',
-    fontSize: 14,
+    fontSize: 15,
     fontFamily: 'Nunito',
     marginTop: 5,
   },
@@ -151,5 +151,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontFamily: 'Nunito-Bold',
+    fontWeight: 'bolder',
   },
 });
