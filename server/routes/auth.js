@@ -34,7 +34,13 @@ router.post('/login', async (req, res) => {
       return res.status(400).send({ message: 'Incorrect password. Try again.' });
     }
 
-    res.send({ message: 'Logged in successfully!', firebaseUid: user.firebaseUid });
+    res.send({ message: 'Logged in successfully!', user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        firebaseUid: user.firebaseUid
+      }
+    });
   } catch (error) {
     res.status(500).send({ message: 'Error logging in', error });
   }

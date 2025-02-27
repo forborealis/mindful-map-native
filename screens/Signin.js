@@ -14,12 +14,16 @@ export default function Signin({ navigation }) {
   const handleSignin = async () => {
     try {
       const response = await axios.post(`${API_URL}/auth/login`, { email, password });
-      const { message, firebaseUid } = response.data;
+      const { message, user, firebaseUid } = response.data;
 
       // Dispatch user to Redux store
-      dispatch(setUser({ email, firebaseUid }));
+      dispatch(setUser({
+        _id: user._id,         
+        email: user.email,
+        name: user.name,         
+        firebaseUid: user.firebaseUid
+      }));
 
-      // Show success toast message
       Toast.show({
         type: 'success',
         text1: 'Logged in successfully!',

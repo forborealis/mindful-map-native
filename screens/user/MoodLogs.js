@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useDispatch } from 'react-redux';
+import { selectMood } from '../../redux/actions/moodActions';
 
 export default function MoodLogs({ navigation }) {
+  const [selectedMood, setSelectedMood] = useState(null);
+  const dispatch = useDispatch();
+
   const handleLogout = () => {
     navigation.navigate('Signin');
   };
 
   const handleNext = () => {
-    navigation.navigate('ActivityLogs');
+    if (selectedMood) {
+      dispatch(selectMood(selectedMood));
+      navigation.navigate('ActivityLogs');
+    } else {
+      alert('Please select your mood before continuing');
+    }
+  };
+
+  const handleMoodSelect = (mood) => {
+    setSelectedMood(mood);
   };
 
   const currentDate = new Date();
@@ -34,31 +48,79 @@ export default function MoodLogs({ navigation }) {
         </View>
         <View style={styles.moodContainer}>
           <View style={styles.moodRow}>
-            <TouchableOpacity style={styles.moodItem}>
+            <TouchableOpacity 
+              style={[styles.moodItem, selectedMood === 'Relaxed' && styles.selectedMood]} 
+              onPress={() => handleMoodSelect('Relaxed')}
+            >
               <Image source={require('../../assets/relaxed.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Relaxed</Text>
+              {selectedMood === 'Relaxed' && (
+                <View style={styles.checkOverlay}>
+                  <Icon name="check-circle" size={40} color="#6fba94" />
+                </View>
+              )}
             </TouchableOpacity>
-            <TouchableOpacity style={styles.moodItem}>
+            <TouchableOpacity 
+              style={[styles.moodItem, selectedMood === 'Happy' && styles.selectedMood]} 
+              onPress={() => handleMoodSelect('Happy')}
+            >
               <Image source={require('../../assets/happy.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Happy</Text>
+              {selectedMood === 'Happy' && (
+                <View style={styles.checkOverlay}>
+                  <Icon name="check-circle" size={40} color="#6fba94" />
+                </View>
+              )}
             </TouchableOpacity>
-            <TouchableOpacity style={styles.moodItem}>
+            <TouchableOpacity 
+              style={[styles.moodItem, selectedMood === 'Fine' && styles.selectedMood]} 
+              onPress={() => handleMoodSelect('Fine')}
+            >
               <Image source={require('../../assets/fine.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Fine</Text>
+              {selectedMood === 'Fine' && (
+                <View style={styles.checkOverlay}>
+                  <Icon name="check-circle" size={40} color="#6fba94" />
+                </View>
+              )}
             </TouchableOpacity>
           </View>
           <View style={styles.moodRow}>
-            <TouchableOpacity style={styles.moodItem}>
+            <TouchableOpacity 
+              style={[styles.moodItem, selectedMood === 'Anxious' && styles.selectedMood]} 
+              onPress={() => handleMoodSelect('Anxious')}
+            >
               <Image source={require('../../assets/anxious.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Anxious</Text>
+              {selectedMood === 'Anxious' && (
+                <View style={styles.checkOverlay}>
+                  <Icon name="check-circle" size={40} color="#6fba94" />
+                </View>
+              )}
             </TouchableOpacity>
-            <TouchableOpacity style={styles.moodItem}>
+            <TouchableOpacity 
+              style={[styles.moodItem, selectedMood === 'Sad' && styles.selectedMood]} 
+              onPress={() => handleMoodSelect('Sad')}
+            >
               <Image source={require('../../assets/sad.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Sad</Text>
+              {selectedMood === 'Sad' && (
+                <View style={styles.checkOverlay}>
+                  <Icon name="check-circle" size={40} color="#6fba94" />
+                </View>
+              )}
             </TouchableOpacity>
-            <TouchableOpacity style={styles.moodItem}>
+            <TouchableOpacity 
+              style={[styles.moodItem, selectedMood === 'Angry' && styles.selectedMood]} 
+              onPress={() => handleMoodSelect('Angry')}
+            >
               <Image source={require('../../assets/angry.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Angry</Text>
+              {selectedMood === 'Angry' && (
+                <View style={styles.checkOverlay}>
+                  <Icon name="check-circle" size={40} color="#6fba94" />
+                </View>
+              )}
             </TouchableOpacity>
           </View>
         </View>
@@ -124,6 +186,12 @@ const styles = StyleSheet.create({
   moodItem: {
     alignItems: 'center',
     flex: 2,
+    position: 'relative',
+    padding: 5,
+    borderRadius: 10,
+  },
+  selectedMood: {
+    backgroundColor: 'rgba(111, 186, 148, 0.1)',
   },
   moodIcon: {
     width: 100,
@@ -134,6 +202,11 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Nunito',
     marginTop: 5,
+  },
+  checkOverlay: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
   },
   nextButton: {
     backgroundColor: '#6fba94',
