@@ -59,7 +59,7 @@ export default function ActivityLogs({ navigation, route }) {
     
     dispatch(saveMoodLog(logData))
       .then(() => {
-        navigation.navigate('LandingPage', { logSaved: true });
+        navigation.navigate('MoodEntries', { logSaved: true });
       })
       .catch(error => {
         Alert.alert("Error", `Failed to save mood log: ${error.message}`);

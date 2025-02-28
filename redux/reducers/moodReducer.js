@@ -1,4 +1,3 @@
-// redux/reducers/moodReducer.js
 const initialState = {
   mood: null,
   activities: {
@@ -9,14 +8,15 @@ const initialState = {
   },
   loading: false,
   error: null,
-  savedLogs: []
+  savedLogs: [],
+  moodLogs: [], // Ensure moodLogs is initialized as an empty array
 };
 
 export default function moodReducer(state = initialState, action) {
   switch (action.type) {
     case 'SELECT_MOOD':
       return { ...state, mood: action.payload };
-      
+
     case 'TOGGLE_ACTIVITY':
       const { category, activity } = action.payload;
       return {
@@ -28,24 +28,41 @@ export default function moodReducer(state = initialState, action) {
             : [...state.activities[category], activity],
         },
       };
-      
+
     case 'SAVE_MOODLOG_REQUEST':
       return { ...state, loading: true, error: null };
-      
+
     case 'SAVE_MOODLOG_SUCCESS':
-      return { 
+      return {
         ...initialState,
         loading: false,
-        savedLogs: [...state.savedLogs, action.payload]
+        savedLogs: [...state.savedLogs, action.payload],
       };
-      
+
     case 'SAVE_MOODLOG_FAILURE':
-      return { 
-        ...state, 
-        loading: false, 
-        error: action.payload 
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
-      
+
+    case 'FETCH_MOODLOGS_REQUEST':
+      return { ...state, loading: true, error: null };
+
+    case 'FETCH_MOODLOGS_SUCCESS':
+      return {
+        ...state,
+        loading: false,
+        moodLogs: action.payload,
+      };
+
+    case 'FETCH_MOODLOGS_FAILURE':
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
     default:
       return state;
   }

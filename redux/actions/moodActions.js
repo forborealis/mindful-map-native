@@ -1,4 +1,5 @@
-// redux/actions/moodActions.js
+import { API_URL } from '@env';
+
 export const selectMood = (mood) => ({
   type: 'SELECT_MOOD',
   payload: mood,
@@ -9,25 +10,37 @@ export const toggleActivity = (category, activity) => ({
   payload: { category, activity },
 });
 
-export const saveMoodLog = (moodLog) => async (dispatch) => {
+export const fetchMoodLogs = (userId) => async (dispatch) => {
+  dispatch({ type: 'FETCH_MOODLOGS_REQUEST' });
   try {
-    console.log("Sending mood log data:", moodLog);
-    const response = await fetch('http://192.168.100.115:3000/moodlogs', {
+    const response = await fetch(`${API_URL}/moodlogs?user=${userId}`);
+    const data = await response.json();
+    console.log('Fetched mood logs:', data); // Add logging
+    dispatch({ type: 'FETCH_MOODLOGS_SUCCESS', payload: data });
+  } catch (error) {
+    console.error('Error fetching mood logs:', error); // Add logging
+    dispatch({ type: 'FETCH_MOODLOGS_FAILURE', payload: error.message });
+  }
+};
+
+export const saveMoodLog = (moodLog) => async (dispatch) => {
+  dispatch({ type: 'SAVE_MOODLOG_REQUEST' });
+  try {
+    const response = await fetch(`${API_URL}/moodlogs`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(moodLog),
     });
-    
+
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Failed to save mood log');
+      const errorText = await response.text();
+      throw new Error(errorText || 'Failed to save mood log');
     }
-    
+
     const data = await response.json();
     dispatch({ type: 'SAVE_MOODLOG_SUCCESS', payload: data });
     return data;
   } catch (error) {
-    console.error("Error saving mood log:", error);
     dispatch({ type: 'SAVE_MOODLOG_FAILURE', payload: error.message });
     throw error;
   }

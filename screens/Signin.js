@@ -29,9 +29,17 @@ export default function Signin({ navigation }) {
         text1: 'Logged in successfully!',
       });
 
-      setTimeout(() => {
+      // Fetch mood logs for the current day
+      const today = new Date().toISOString().split('T')[0];
+      const moodLogsResponse = await axios.get(`${API_URL}/moodlogs?user=${user._id}&date=${today}`);
+      const moodLogs = moodLogsResponse.data;
+
+      // Check if there is an existing log for the current day
+      if (moodLogs.length > 0) {
+        navigation.navigate('MoodEntries');
+      } else {
         navigation.navigate('MoodLogs', { firebaseUid });
-      }, 2000); 
+      }
     } catch (error) {
       console.error(error);
 
