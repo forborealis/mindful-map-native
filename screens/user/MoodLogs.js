@@ -4,9 +4,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useDispatch } from 'react-redux';
 import { selectMood } from '../../redux/actions/moodActions';
 
-export default function MoodLogs({ navigation }) {
+export default function MoodLogs({ navigation, route }) {
   const [selectedMood, setSelectedMood] = useState(null);
   const dispatch = useDispatch();
+
+  const dateToUse = route.params?.selectedDate || new Date();
 
   const handleLogout = () => {
     navigation.navigate('Signin');
@@ -15,7 +17,7 @@ export default function MoodLogs({ navigation }) {
   const handleNext = () => {
     if (selectedMood) {
       dispatch(selectMood(selectedMood));
-      navigation.navigate('ActivityLogs');
+      navigation.navigate('ActivityLogs', { selectedDate: dateToUse });
     } else {
       alert('Please select your mood before continuing');
     }
@@ -25,16 +27,15 @@ export default function MoodLogs({ navigation }) {
     setSelectedMood(mood);
   };
 
-  const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleDateString('en-US', {
+  const formattedDate = dateToUse.toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
   });
-  const formattedTime = currentDate.toLocaleTimeString('en-US', {
+  const formattedTime = dateToUse.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
   });
-
+  
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
@@ -43,7 +44,11 @@ export default function MoodLogs({ navigation }) {
       <View style={styles.content}>
         <Text style={styles.title}>How are you feeling today?</Text>
         <View style={styles.dateTimeContainer}>
-          <Text style={styles.dateText}>Today, {formattedDate}</Text>
+          <Text style={styles.dateText}>
+            {dateToUse.toDateString() === new Date().toDateString() 
+              ? `Today, ${formattedDate}` 
+              : formattedDate}
+          </Text>
           <Text style={styles.timeText}>{formattedTime}</Text>
         </View>
         <View style={styles.moodContainer}>
@@ -52,7 +57,7 @@ export default function MoodLogs({ navigation }) {
               style={[styles.moodItem, selectedMood === 'Relaxed' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Relaxed')}
             >
-              <Image source={require('../../assets/relaxed.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/relaxed1.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Relaxed</Text>
               {selectedMood === 'Relaxed' && (
                 <View style={styles.checkOverlay}>
@@ -64,7 +69,7 @@ export default function MoodLogs({ navigation }) {
               style={[styles.moodItem, selectedMood === 'Happy' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Happy')}
             >
-              <Image source={require('../../assets/happy.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/happy1.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Happy</Text>
               {selectedMood === 'Happy' && (
                 <View style={styles.checkOverlay}>
@@ -76,7 +81,7 @@ export default function MoodLogs({ navigation }) {
               style={[styles.moodItem, selectedMood === 'Fine' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Fine')}
             >
-              <Image source={require('../../assets/fine.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/fine1.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Fine</Text>
               {selectedMood === 'Fine' && (
                 <View style={styles.checkOverlay}>
@@ -90,7 +95,7 @@ export default function MoodLogs({ navigation }) {
               style={[styles.moodItem, selectedMood === 'Anxious' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Anxious')}
             >
-              <Image source={require('../../assets/anxious.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/anxious1.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Anxious</Text>
               {selectedMood === 'Anxious' && (
                 <View style={styles.checkOverlay}>
@@ -102,7 +107,7 @@ export default function MoodLogs({ navigation }) {
               style={[styles.moodItem, selectedMood === 'Sad' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Sad')}
             >
-              <Image source={require('../../assets/sad.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/sad1.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Sad</Text>
               {selectedMood === 'Sad' && (
                 <View style={styles.checkOverlay}>
@@ -114,7 +119,7 @@ export default function MoodLogs({ navigation }) {
               style={[styles.moodItem, selectedMood === 'Angry' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Angry')}
             >
-              <Image source={require('../../assets/angry.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/angry1.png')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Angry</Text>
               {selectedMood === 'Angry' && (
                 <View style={styles.checkOverlay}>

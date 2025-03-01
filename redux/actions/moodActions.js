@@ -5,6 +5,11 @@ export const selectMood = (mood) => ({
   payload: mood,
 });
 
+export const selectDate = (date) => ({
+  type: 'SELECT_DATE',
+  payload: date,
+});
+
 export const toggleActivity = (category, activity) => ({
   type: 'TOGGLE_ACTIVITY',
   payload: { category, activity },

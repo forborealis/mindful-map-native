@@ -36,7 +36,7 @@ export default function Signin({ navigation }) {
 
       // Check if there is an existing log for the current day
       if (moodLogs.length > 0) {
-        navigation.navigate('MoodEntries');
+        navigation.navigate('Nav');
       } else {
         navigation.navigate('MoodLogs', { firebaseUid });
       }

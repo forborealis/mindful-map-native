@@ -125,7 +125,7 @@ export default function MoodEntries({ navigation }) {
           ))
         )}
       </ScrollView>
-      <BottomNav navigation={navigation} /> {/* Add BottomNav */}
+      {/* <BottomNav navigation={navigation} />  */}
     </View>
   );
 }

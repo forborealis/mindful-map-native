@@ -1,5 +1,6 @@
 const initialState = {
   mood: null,
+  selectedDate: new Date(), 
   activities: {
     activities: [],
     social: [],
@@ -17,6 +18,9 @@ export default function moodReducer(state = initialState, action) {
     case 'SELECT_MOOD':
       return { ...state, mood: action.payload };
 
+    case 'SELECT_DATE':
+      return { ...state, selectedDate: action.payload };
+      
     case 'TOGGLE_ACTIVITY':
       const { category, activity } = action.payload;
       return {

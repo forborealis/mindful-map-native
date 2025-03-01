@@ -20,6 +20,8 @@ export default function ActivityLogs({ navigation, route }) {
     navigation.navigate('Signin');
   };
 
+  const selectedDate = route.params?.selectedDate || new Date();
+
   const handleFinish = () => {
     if (selectedActivities.length === 0 || selectedSocial.length === 0 || 
         selectedHealth.length === 0 || !selectedSleep) {
@@ -45,6 +47,9 @@ export default function ActivityLogs({ navigation, route }) {
       return;
     }
     
+    const selectedDateCopy = new Date(selectedDate);
+    selectedDateCopy.setHours(12, 0, 0, 0);
+    
     const logData = {
       user: userId,
       mood,
@@ -52,14 +57,14 @@ export default function ActivityLogs({ navigation, route }) {
       social: selectedSocial,
       health: selectedHealth,
       sleepQuality: selectedSleep,
-      date: new Date()
+      date: selectedDateCopy
     };
 
     console.log("Log data to be saved:", logData);
     
     dispatch(saveMoodLog(logData))
       .then(() => {
-        navigation.navigate('MoodEntries', { logSaved: true });
+        navigation.navigate('Nav', { logSaved: true });
       })
       .catch(error => {
         Alert.alert("Error", `Failed to save mood log: ${error.message}`);
