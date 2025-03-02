@@ -11,6 +11,7 @@ import MoodLogs from '../screens/user/MoodLogs';
 import ActivityLogs from '../screens/user/ActivityLogs';
 import MoodEntries from '../screens/user/MoodEntries';
 import Calendar from '../screens/user/Calendar';
+import Correlation from '../screens/user/Correlation';
 import Prediction from '../screens/user/Prediction';
 
 const Stack = createStackNavigator();
@@ -70,6 +71,8 @@ function BottomTabNavigator() {
             iconName = focused ? 'list' : 'list-outline';
           } else if (route.name === 'Calendar') {
             iconName = focused ? 'calendar' : 'calendar-outline';
+          }  else if (route.name === 'Correlation') {
+            iconName = focused ? 'stats-chart' : 'stats-chart-outline';
           }  else if (route.name === 'Prediction') {
             iconName = focused ? 'analytics' : 'analytics-outline';
           } else if (route.name === 'SignOut') {
@@ -92,6 +95,7 @@ function BottomTabNavigator() {
     >
       <Tab.Screen name="Entries" component={MoodEntries} />
       <Tab.Screen name="Calendar" component={Calendar} />
+      <Tab.Screen name="Correlation" component={Correlation} />
       <Tab.Screen name="Prediction" component={Prediction} /><Tab.Screen
         name="SignOut"
         component={() => null} // Empty screen since we only handle navigation

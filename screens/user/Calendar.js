@@ -265,8 +265,8 @@ const styles = StyleSheet.create({
   },
   monthYearText: {
     fontSize: 22,
-    fontWeight: 'bold',
     color: '#333',
+    fontFamily: 'Nunito-Bold',
   },
   calendarContainer: {
     marginHorizontal: 15, // Adding left and right margins
@@ -280,12 +280,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 10,
     paddingBottom: 5,
+    fontFamily: 'Nunito-Bold',
   },
   weekDayText: {
     flex: 1,
     textAlign: 'center',
     color: '#aaa',
     fontSize: 16,
+    fontFamily: 'Nunito-Bold',
   },
   calendarGrid: {
     flexDirection: 'row',
@@ -344,6 +346,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 3,
     color: '#333',
+    fontFamily: 'Nunito-Bold',
   },
   dayTextPrevNext: {
     fontSize: 14,
@@ -389,6 +392,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#aaa',
     marginTop: 3,
+    fontFamily: 'Nunito-Bold',
   },
   navActiveText: {
     fontSize: 11,
