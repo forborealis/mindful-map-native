@@ -48,8 +48,19 @@ export default function ActivityLogs({ navigation, route }) {
     }
     
     const selectedDateCopy = new Date(selectedDate);
-    selectedDateCopy.setHours(12, 0, 0, 0);
+
+    const now = new Date(); 
     
+    selectedDateCopy.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), 0);
+    const utcDate = new Date(
+      selectedDateCopy.getFullYear(), // Keep year
+      selectedDateCopy.getMonth(),    // Keep month
+      selectedDateCopy.getDate(),     // Keep day
+      now.getHours(),                 // Keep correct time
+      now.getMinutes(),
+      now.getSeconds()
+    );
+
     const logData = {
       user: userId,
       mood,
@@ -57,7 +68,7 @@ export default function ActivityLogs({ navigation, route }) {
       social: selectedSocial,
       health: selectedHealth,
       sleepQuality: selectedSleep,
-      date: selectedDateCopy
+      date: utcDate.toISOString(), 
     };
 
     console.log("Log data to be saved:", logData);

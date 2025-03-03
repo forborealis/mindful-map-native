@@ -54,6 +54,9 @@ export default function moodReducer(state = initialState, action) {
       return { ...state, loading: true, error: null };
 
     case 'FETCH_MOODLOGS_SUCCESS':
+      if (JSON.stringify(state.moodLogs) === JSON.stringify(action.payload)) {
+        return state;
+      }
       return {
         ...state,
         loading: false,

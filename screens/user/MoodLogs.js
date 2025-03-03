@@ -31,7 +31,8 @@ export default function MoodLogs({ navigation, route }) {
     month: 'long',
     day: 'numeric',
   });
-  const formattedTime = dateToUse.toLocaleTimeString('en-US', {
+  const currentDate = new Date();
+  const formattedTime = currentDate.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
   });

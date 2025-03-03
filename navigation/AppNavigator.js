@@ -13,6 +13,7 @@ import MoodEntries from '../screens/user/MoodEntries';
 import Calendar from '../screens/user/Calendar';
 import Correlation from '../screens/user/Correlation';
 import Prediction from '../screens/user/Prediction';
+import WeeklyPrediction from '../screens/user/WeeklyPrediction';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,6 +21,11 @@ const Tab = createBottomTabNavigator();
 export default function AppNavigator() {
   return (
     <NavigationContainer>
+    <Stack.Screen
+      name="WeeklyPrediction"
+      component={WeeklyPrediction}
+      options={{ headerShown: false }}
+    />
       <Stack.Navigator initialRouteName="LandingPage">
         <Stack.Screen
           name="LandingPage"

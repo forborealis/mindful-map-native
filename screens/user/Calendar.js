@@ -133,7 +133,7 @@ const Calendar = ({ navigation }) => {
       currentWeekSunday.setDate(currentWeekMonday.getDate() + 6);
       currentWeekSunday.setHours(23, 59, 59, 999);
 
-      const dateForComparison = new Date(year, month, day, 12, 0, 0, 0);
+      const dateForComparison = new Date(year, month, day, 0, 0, 0, 0);
       const isInCurrentWeek = dateForComparison >= currentWeekMonday && dateForComparison <= currentDate;
       
       days.push(
