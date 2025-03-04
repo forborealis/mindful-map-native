@@ -10,8 +10,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://sezinguzel14:12345@cluster0.w7vl6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-// mongoose.connect('mongodb+srv://hbusto:12345@cluster0.adchg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+// mongoose.connect('mongodb+srv://sezinguzel14:12345@cluster0.w7vl6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb+srv://hbusto:12345@cluster0.adchg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

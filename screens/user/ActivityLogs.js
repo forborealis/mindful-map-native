@@ -287,7 +287,7 @@ export default function ActivityLogs({ navigation, route }) {
               onPress={() => toggleSocial('Relationship')}
             >
               <Image source={require('../../assets/relationship.png')} style={styles.image} />
-              <Text style={styles.imageText}>Relationship</Text>
+              <Text style={styles.imageText}>Partner</Text>
               {selectedSocial.includes('Relationship') && (
                 <View style={styles.checkMark}>
                   <Icon name="check-circle" size={20} color="#6fba94" />
@@ -302,7 +302,7 @@ export default function ActivityLogs({ navigation, route }) {
               onPress={() => toggleSocial('Colleagues')}
             >
               <Image source={require('../../assets/colleagues.png')} style={styles.image} />
-              <Text style={styles.imageText}>Colleagues</Text>
+              <Text style={styles.imageText}>Colleague</Text>
               {selectedSocial.includes('Colleagues') && (
                 <View style={styles.checkMark}>
                   <Icon name="check-circle" size={20} color="#6fba94" />

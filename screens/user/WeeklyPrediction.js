@@ -130,7 +130,7 @@ const WeeklyPrediction = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Weekly Prediction</Text>
+        {/* <Text style={styles.headerTitle}>Weekly Prediction</Text> */}
       </View>
       
       <View style={styles.content}>
@@ -164,18 +164,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
   },
-  header: {
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    backgroundColor: 'white',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e1e1e1',
-  },
-  headerTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#333',
-  },
+  // header: {
+  //   paddingVertical: 15,
+  //   paddingHorizontal: 20,
+  //   backgroundColor: 'white',
+  //   borderBottomWidth: 1,
+  //   borderBottomColor: '#e1e1e1',
+  // },
+  // headerTitle: {
+  //   fontSize: 22,
+  //   fontWeight: 'bold',
+  //   color: '#333',
+  // },
   content: {
     flex: 1,
     paddingHorizontal: 16,
@@ -183,10 +183,10 @@ const styles = StyleSheet.create({
   },
   dateText: {
     fontSize: 16,
-    fontWeight: '500',
     color: '#333',
     marginBottom: 12,
     marginLeft: 4,
+    fontFamily:'Nunito-Bold'
   },
   card: {
     flexDirection: 'row',
@@ -219,12 +219,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     color: '#333',
+    fontFamily:'Nunito-Bold'
   },
   companyText: {
     fontSize: 14,
     color: '#999',
     marginTop: 4,
     flexWrap: 'wrap',
+    fontFamily:'Nunito'
   }
 });
 

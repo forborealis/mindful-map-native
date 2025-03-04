@@ -21,11 +21,6 @@ const Tab = createBottomTabNavigator();
 export default function AppNavigator() {
   return (
     <NavigationContainer>
-    <Stack.Screen
-      name="WeeklyPrediction"
-      component={WeeklyPrediction}
-      options={{ headerShown: false }}
-    />
       <Stack.Navigator initialRouteName="LandingPage">
         <Stack.Screen
           name="LandingPage"
@@ -55,6 +50,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name="ActivityLogs"
           component={ActivityLogs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WeeklyPrediction"
+          component={WeeklyPrediction}
           options={{ headerShown: false }}
         />
         <Stack.Screen
