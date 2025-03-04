@@ -102,7 +102,7 @@ function BottomTabNavigator() {
       <Tab.Screen name="Entries" component={MoodEntries} />
       <Tab.Screen name="Calendar" component={Calendar} />
       <Tab.Screen name="Correlation" component={Correlation} />
-      <Tab.Screen name="Prediction" component={Prediction} /><Tab.Screen
+      <Tab.Screen name="Prediction" component={WeeklyPrediction} /><Tab.Screen
         name="SignOut"
         component={() => null} // Empty screen since we only handle navigation
         listeners={({ navigation }) => ({
