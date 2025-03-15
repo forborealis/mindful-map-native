@@ -58,7 +58,7 @@ export default function MoodLogs({ navigation, route }) {
               style={[styles.moodItem, selectedMood === 'Relaxed' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Relaxed')}
             >
-              <Image source={require('../../assets/relaxed1.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/relaxed.gif')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Relaxed</Text>
               {selectedMood === 'Relaxed' && (
                 <View style={styles.checkOverlay}>
@@ -70,7 +70,7 @@ export default function MoodLogs({ navigation, route }) {
               style={[styles.moodItem, selectedMood === 'Happy' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Happy')}
             >
-              <Image source={require('../../assets/happy1.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/happy.gif')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Happy</Text>
               {selectedMood === 'Happy' && (
                 <View style={styles.checkOverlay}>
@@ -82,7 +82,7 @@ export default function MoodLogs({ navigation, route }) {
               style={[styles.moodItem, selectedMood === 'Fine' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Fine')}
             >
-              <Image source={require('../../assets/fine1.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/fine.gif')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Fine</Text>
               {selectedMood === 'Fine' && (
                 <View style={styles.checkOverlay}>
@@ -96,7 +96,7 @@ export default function MoodLogs({ navigation, route }) {
               style={[styles.moodItem, selectedMood === 'Anxious' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Anxious')}
             >
-              <Image source={require('../../assets/anxious1.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/anxious.gif')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Anxious</Text>
               {selectedMood === 'Anxious' && (
                 <View style={styles.checkOverlay}>
@@ -108,7 +108,7 @@ export default function MoodLogs({ navigation, route }) {
               style={[styles.moodItem, selectedMood === 'Sad' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Sad')}
             >
-              <Image source={require('../../assets/sad1.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/sad.gif')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Sad</Text>
               {selectedMood === 'Sad' && (
                 <View style={styles.checkOverlay}>
@@ -120,7 +120,7 @@ export default function MoodLogs({ navigation, route }) {
               style={[styles.moodItem, selectedMood === 'Angry' && styles.selectedMood]} 
               onPress={() => handleMoodSelect('Angry')}
             >
-              <Image source={require('../../assets/angry1.png')} style={styles.moodIcon} />
+              <Image source={require('../../assets/angry.gif')} style={styles.moodIcon} />
               <Text style={styles.moodText}>Angry</Text>
               {selectedMood === 'Angry' && (
                 <View style={styles.checkOverlay}>

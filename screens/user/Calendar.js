@@ -13,12 +13,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchMoodLogs } from '../../redux/actions/moodActions';
 
 const moodImages = {
-  relaxed: require('../../assets/relaxed.png'),
-  happy: require('../../assets/happy.png'),
-  fine: require('../../assets/fine.png'),
-  sad: require('../../assets/sad.png'),
-  anxious: require('../../assets/anxious.png'),
-  angry: require('../../assets/angry.png'),
+  relaxed: require('../../assets/relaxed.gif'),
+  happy: require('../../assets/happy.gif'),
+  fine: require('../../assets/fine.gif'),
+  sad: require('../../assets/sad.gif'),
+  anxious: require('../../assets/anxious.gif'),
+  angry: require('../../assets/angry.gif'),
 };
 
 const Calendar = ({ navigation }) => {

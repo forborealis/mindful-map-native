@@ -128,7 +128,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleActivity('Studying')}
             >
-              <Image source={require('../../assets/studying.png')} style={styles.image} />
+              <Image source={require('../../assets/studying.gif')} style={styles.image} />
               <Text style={styles.imageText}>Studying</Text>
               {selectedActivities.includes('Studying') && (
                 <View style={styles.checkMark}>
@@ -143,7 +143,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleActivity('Exam')}
             >
-              <Image source={require('../../assets/exam.png')} style={styles.image} />
+              <Image source={require('../../assets/exam.gif')} style={styles.image} />
               <Text style={styles.imageText}>Exam</Text>
               {selectedActivities.includes('Exam') && (
                 <View style={styles.checkMark}>
@@ -158,7 +158,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleActivity('Work')}
             >
-              <Image source={require('../../assets/work.png')} style={styles.image} />
+              <Image source={require('../../assets/work.gif')} style={styles.image} />
               <Text style={styles.imageText}>Work</Text>
               {selectedActivities.includes('Work') && (
                 <View style={styles.checkMark}>
@@ -173,7 +173,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleActivity('Reading')}
             >
-              <Image source={require('../../assets/reading.png')} style={styles.image} />
+              <Image source={require('../../assets/reading.gif')} style={styles.image} />
               <Text style={styles.imageText}>Reading</Text>
               {selectedActivities.includes('Reading') && (
                 <View style={styles.checkMark}>
@@ -190,7 +190,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleActivity('Gaming')}
             >
-              <Image source={require('../../assets/gaming.png')} style={styles.image} />
+              <Image source={require('../../assets/gaming.gif')} style={styles.image} />
               <Text style={styles.imageText}>Gaming</Text>
               {selectedActivities.includes('Gaming') && (
                 <View style={styles.checkMark}>
@@ -205,7 +205,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleActivity('Music')}
             >
-              <Image source={require('../../assets/music.png')} style={styles.image} />
+              <Image source={require('../../assets/music.gif')} style={styles.image} />
               <Text style={styles.imageText}>Music</Text>
               {selectedActivities.includes('Music') && (
                 <View style={styles.checkMark}>
@@ -220,7 +220,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleActivity('Movie')}
             >
-              <Image source={require('../../assets/movie.png')} style={styles.image} />
+              <Image source={require('../../assets/movie.gif')} style={styles.image} />
               <Text style={styles.imageText}>Movie</Text>
               {selectedActivities.includes('Movie') && (
                 <View style={styles.checkMark}>
@@ -235,7 +235,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleActivity('Relax')}
             >
-              <Image source={require('../../assets/relax.png')} style={styles.image} />
+              <Image source={require('../../assets/relax.gif')} style={styles.image} />
               <Text style={styles.imageText}>Relax</Text>
               {selectedActivities.includes('Relax') && (
                 <View style={styles.checkMark}>
@@ -256,7 +256,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleSocial('Family')}
             >
-              <Image source={require('../../assets/family.png')} style={styles.image} />
+              <Image source={require('../../assets/family.gif')} style={styles.image} />
               <Text style={styles.imageText}>Family</Text>
               {selectedSocial.includes('Family') && (
                 <View style={styles.checkMark}>
@@ -271,7 +271,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleSocial('Friends')}
             >
-              <Image source={require('../../assets/friends.png')} style={styles.image} />
+              <Image source={require('../../assets/friends.gif')} style={styles.image} />
               <Text style={styles.imageText}>Friends</Text>
               {selectedSocial.includes('Friends') && (
                 <View style={styles.checkMark}>
@@ -286,7 +286,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleSocial('Relationship')}
             >
-              <Image source={require('../../assets/relationship.png')} style={styles.image} />
+              <Image source={require('../../assets/relationship.gif')} style={styles.image} />
               <Text style={styles.imageText}>Partner</Text>
               {selectedSocial.includes('Relationship') && (
                 <View style={styles.checkMark}>
@@ -301,7 +301,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleSocial('Colleagues')}
             >
-              <Image source={require('../../assets/colleagues.png')} style={styles.image} />
+              <Image source={require('../../assets/colleagues.gif')} style={styles.image} />
               <Text style={styles.imageText}>Colleague</Text>
               {selectedSocial.includes('Colleagues') && (
                 <View style={styles.checkMark}>
@@ -316,7 +316,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleSocial('Pets')}
             >
-              <Image source={require('../../assets/pets.png')} style={styles.image} />
+              <Image source={require('../../assets/pets.gif')} style={styles.image} />
               <Text style={styles.imageText}>Pets</Text>
               {selectedSocial.includes('Pets') && (
                 <View style={styles.checkMark}>
@@ -337,7 +337,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleHealth('Exercise')}
             >
-              <Image source={require('../../assets/exercise.png')} style={styles.image} />
+              <Image source={require('../../assets/exercise.gif')} style={styles.image} />
               <Text style={styles.imageText}>Exercise</Text>
               {selectedHealth.includes('Exercise') && (
                 <View style={styles.checkMark}>
@@ -352,7 +352,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleHealth('Run')}
             >
-              <Image source={require('../../assets/run.png')} style={styles.image} />
+              <Image source={require('../../assets/run.gif')} style={styles.image} />
               <Text style={styles.imageText}>Run</Text>
               {selectedHealth.includes('Run') && (
                 <View style={styles.checkMark}>
@@ -367,7 +367,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleHealth('Walk')}
             >
-              <Image source={require('../../assets/walk.png')} style={styles.image} />
+              <Image source={require('../../assets/walk.gif')} style={styles.image} />
               <Text style={styles.imageText}>Walk</Text>
               {selectedHealth.includes('Walk') && (
                 <View style={styles.checkMark}>
@@ -382,7 +382,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => toggleHealth('Eat Healthy')}
             >
-              <Image source={require('../../assets/eathealthy.png')} style={styles.image} />
+              <Image source={require('../../assets/eathealthy.gif')} style={styles.image} />
               <Text style={styles.imageText}>Eat Healthy</Text>
               {selectedHealth.includes('Eat Healthy') && (
                 <View style={styles.checkMark}>
@@ -403,7 +403,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => selectSleep('No Sleep')}
             >
-              <Image source={require('../../assets/no-sleep.png')} style={styles.image} />
+              <Image source={require('../../assets/no-sleep.gif')} style={styles.image} />
               <Text style={styles.imageText}>No Sleep</Text>
               {selectedSleep === 'No Sleep' && (
                 <View style={styles.checkMark}>
@@ -418,7 +418,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => selectSleep('Poor Sleep')}
             >
-              <Image source={require('../../assets/poor-sleep.png')} style={styles.image} />
+              <Image source={require('../../assets/poor-sleep.gif')} style={styles.image} />
               <Text style={styles.imageText}>Poor Sleep</Text>
               {selectedSleep === 'Poor Sleep' && (
                 <View style={styles.checkMark}>
@@ -433,7 +433,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => selectSleep('Medium Sleep')}
             >
-              <Image source={require('../../assets/medium-sleep.png')} style={styles.image} />
+              <Image source={require('../../assets/medium-sleep.gif')} style={styles.image} />
               <Text style={styles.imageText}>Medium Sleep</Text>
               {selectedSleep === 'Medium Sleep' && (
                 <View style={styles.checkMark}>
@@ -448,7 +448,7 @@ export default function ActivityLogs({ navigation, route }) {
               ]}
               onPress={() => selectSleep('Good Sleep')}
             >
-              <Image source={require('../../assets/good-sleep.png')} style={styles.image} />
+              <Image source={require('../../assets/good-sleep.gif')} style={styles.image} />
               <Text style={styles.imageText}>Good Sleep</Text>
               {selectedSleep === 'Good Sleep' && (
                 <View style={styles.checkMark}>
@@ -522,12 +522,12 @@ const styles = StyleSheet.create({
     borderColor: '#6fba94',
   },
   image: {
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
   },
   imageText: {
     color: '#3a3939',
-    fontSize: 11.5,
+    fontSize: 12.5,
     fontFamily: 'Nunito',
     marginTop: 5,
     textAlign: 'center',
